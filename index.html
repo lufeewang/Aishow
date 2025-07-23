@@ -1,113 +1,97 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Reader Market Share by Screen Size</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .chart-container {
+            width: 80%;
+            max-width: 1000px;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;E-Reader Market Share by Screen Size&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.jsdelivr.net/npm/chart.js"&gt;&lt;/script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 100vh;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background-color: #f4f4f9;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.chart-container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 80%;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>max-width: 1000px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 30px;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="chart-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;canvas id="amazonChart"&gt;&lt;/canvas&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;canvas id="koboChart"&gt;&lt;/canvas&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;canvas id="booxChart"&gt;&lt;/canvas&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;canvas id="pocketBookChart"&gt;&lt;/canvas&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const data = {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>amazon: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>labels: ['5"', '7"', '9"'],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>datasets: [{</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>label: 'Amazon E-Reader Market Share',</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>data: [40, 37, 23],</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>backgroundColor: ['#4e73df', '#1cc88a', '#f6c23e'],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>kobo: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>labels: ['5"', '7"', '9"'],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>datasets: [{</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>label: 'Kobo E-Reader Market Share',</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>data: [45, 30, 25],</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>backgroundColor: ['#4e73df', '#1cc88a', '#f6c23e'],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>boox: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>labels: ['5"', '7"', '9"'],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>datasets: [{</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>label: 'Boox E-Reader Market Share',</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>data: [60, 20, 20],</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>backgroundColor: ['#4e73df', '#1cc88a', '#f6c23e'],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>pocketBook: {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>labels: ['5"', '7"', '9"'],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>datasets: [{</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>label: 'PocketBook E-Reader Market Share',</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>data: [55, 30, 15],</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>backgroundColor: ['#4e73df', '#1cc88a', '#f6c23e'],</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}]</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>const config = (chartId, chartData) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>return {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>type: 'pie',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>data: chartData,</p>
-<p class="p1"><span class="Apple-converted-space">                </span>options: {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>responsive: true,</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>plugins: {</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>tooltip: {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>callbacks: {</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>label: function(tooltipItem) {</p>
-<p class="p1"><span class="Apple-converted-space">                                    </span>return `${tooltipItem.label}: ${tooltipItem.raw}%`;</p>
-<p class="p1"><span class="Apple-converted-space">                                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>legend: {</p>
-<p class="p1"><span class="Apple-converted-space">                            </span>position: 'top',</p>
-<p class="p1"><span class="Apple-converted-space">                        </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>};</p>
-<p class="p1"><span class="Apple-converted-space">        </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>new Chart(document.getElementById('amazonChart'), config('amazonChart', data.amazon));</p>
-<p class="p1"><span class="Apple-converted-space">        </span>new Chart(document.getElementById('koboChart'), config('koboChart', data.kobo));</p>
-<p class="p1"><span class="Apple-converted-space">        </span>new Chart(document.getElementById('booxChart'), config('booxChart', data.boox));</p>
-<p class="p1"><span class="Apple-converted-space">        </span>new Chart(document.getElementById('pocketBookChart'), config('pocketBookChart', data.pocketBook));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+    <div class="chart-container">
+        <canvas id="amazonChart"></canvas>
+        <canvas id="koboChart"></canvas>
+        <canvas id="booxChart"></canvas>
+        <canvas id="pocketBookChart"></canvas>
+    </div>
+
+    <script>
+        const data = {
+            amazon: {
+                labels: ['5"', '7"', '9"'],
+                datasets: [{
+                    label: 'Amazon E-Reader Market Share',
+                    data: [40, 37, 23],
+                    backgroundColor: ['#4e73df', '#1cc88a', '#f6c23e'],
+                }]
+            },
+            kobo: {
+                labels: ['5"', '7"', '9"'],
+                datasets: [{
+                    label: 'Kobo E-Reader Market Share',
+                    data: [45, 30, 25],
+                    backgroundColor: ['#4e73df', '#1cc88a', '#f6c23e'],
+                }]
+            },
+            boox: {
+                labels: ['5"', '7"', '9"'],
+                datasets: [{
+                    label: 'Boox E-Reader Market Share',
+                    data: [60, 20, 20],
+                    backgroundColor: ['#4e73df', '#1cc88a', '#f6c23e'],
+                }]
+            },
+            pocketBook: {
+                labels: ['5"', '7"', '9"'],
+                datasets: [{
+                    label: 'PocketBook E-Reader Market Share',
+                    data: [55, 30, 15],
+                    backgroundColor: ['#4e73df', '#1cc88a', '#f6c23e'],
+                }]
+            }
+        };
+
+        const config = (chartId, chartData) => {
+            return {
+                type: 'pie',
+                data: chartData,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(tooltipItem) {
+                                    return `${tooltipItem.label}: ${tooltipItem.raw}%`;
+                                }
+                            }
+                        },
+                        legend: {
+                            position: 'top',
+                        },
+                    },
+                }
+            };
+        };
+
+        new Chart(document.getElementById('amazonChart'), config('amazonChart', data.amazon));
+        new Chart(document.getElementById('koboChart'), config('koboChart', data.kobo));
+        new Chart(document.getElementById('booxChart'), config('booxChart', data.boox));
+        new Chart(document.getElementById('pocketBookChart'), config('pocketBookChart', data.pocketBook));
+    </script>
 </body>
 </html>
